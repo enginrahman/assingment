@@ -60,11 +60,11 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="" method="" enctype="multipart/form-data">
+        <form id="form" action="#" onsubmit="return validation()" method="" enctype="multipart/form-data">
         <div class="form-group row">
             <label for="inputPassword" class="col-sm-4 col-form-label">Brand Name <span class="text-danger">*</span></label>
             <div class="col-sm-8">
-            <input type="text" required class="form-control" name="brand" id="inputPassword" placeholder="Brand Name">
+            <input type="text"  class="form-control"  name="brand" id="inputPassword" placeholder="Brand Name">
             </div>
         </div>                  
       </div>
