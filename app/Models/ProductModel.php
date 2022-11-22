@@ -4,17 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ModelsModel extends Model
+class ProductModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'models';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'model_id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['name', 'entry_date','brand_id'];
 
     // Dates
     protected $useTimestamps = false;

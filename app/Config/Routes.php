@@ -18,9 +18,9 @@ if (is_file(SYSTEMPATH . 'Config/Routes.php')) {
  */
 $routes->setDefaultNamespace('App\Controllers');
 $routes->setDefaultController('Home');
-$routes->setDefaultMethod('index');
-$routes->setTranslateURIDashes(false);
-$routes->set404Override();
+// $routes->setDefaultMethod('index');
+// $routes->setTranslateURIDashes(false);
+// $routes->set404Override();
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
@@ -38,10 +38,26 @@ $routes->set404Override();
 
 $routes->get('/', 'Home::Brand');
 
+$routes->post('/brand/store','Home::AddBrend');
+$routes->post('/brand/edite','Home::BrendEdite');
+$routes->get('/brand/delete/','Home::BrendDelete');
+
+                // End Brand  ///
+                
+
 $routes->get('/model','Home::Models');
+$routes->post('/new/model','Home::AddModel');
+$routes->post('/model/edit','Home::ModelEdite');
+$routes->get('/model/delete/(:any)','Home::ModelDelete');
+
+
+    // End Model//
 
 $routes->get('/item','Home::item');
-
+$routes->get('/show/dependent/data','Home::showDependentData');
+$routes->post('/item/store','Home::AddItem');
+$routes->post('/item/edit','Home::ItemEdite');
+$routes->get('/item/delete/(:any)','Home::deleteItem');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

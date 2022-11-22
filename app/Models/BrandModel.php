@@ -7,16 +7,16 @@ use CodeIgniter\Model;
 class BrandModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'brands';
-    protected $primaryKey       = 'id';
+    protected $table            = 'brand';
+    protected $primaryKey       = 'brand_id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['name', 'brand_id'];
 
-    // Dates
+
     protected $useTimestamps = false;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
