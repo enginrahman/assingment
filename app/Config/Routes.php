@@ -48,7 +48,7 @@ $routes->get('/brand/delete/','Home::BrendDelete');
 $routes->get('/model','Home::Models');
 $routes->post('/new/model','Home::AddModel');
 $routes->post('/model/edit','Home::ModelEdite');
-$routes->get('/model/delete/(:any)','Home::ModelDelete');
+$routes->get('/model/delete/','Home::ModelDelete');
 
 
     // End Model//
@@ -57,7 +57,7 @@ $routes->get('/item','Home::item');
 $routes->get('/show/dependent/data','Home::showDependentData');
 $routes->post('/item/store','Home::AddItem');
 $routes->post('/item/edit','Home::ItemEdite');
-$routes->get('/item/delete/(:any)','Home::deleteItem');
+$routes->get('/item/delete/','Home::deleteItem');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

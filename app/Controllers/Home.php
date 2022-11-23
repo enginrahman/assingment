@@ -10,7 +10,6 @@ class Home extends BaseController
 
     public function Brand()
     {
-
         $result= new BrandModel();
         $data['Datakey']=$result->orderBy('entry_date','DESC')->findAll();
         return view ('brand',$data);
@@ -18,10 +17,9 @@ class Home extends BaseController
     }
     public function AddBrend()
     {      
-
         $data=[ 'name'=> $this->request->getVar('brandname') ];
         $Models= new BrandModel();
-        $Models->save($data);  
+        $Models->save($data); 
         return redirect()->to(base_url('/'));  
     }
 
@@ -34,13 +32,13 @@ class Home extends BaseController
         return redirect()->to(base_url('/')); 
     } 
     
-    public function BrendDelete($id)
+    public function BrendDelete()
     {
+        $id=$this->request->getVar('id');
         $Models= new BrandModel();
-        $id=$this->input->get('id');
-        $data=$Models->where('brand_id',$id);
+        $data=$Models->where('brand_id',$id); 
         $data->delete();
-        return redirect()->to(base_url('/')); 
+        return redirect()->to(base_url('/'));        
     }     
 
                                         // End Brand //
@@ -74,9 +72,10 @@ class Home extends BaseController
     } 
     public function ModelDelete($id)
     {
+        $id=$this->request->getVar('id');
         $Models= new ProductModel();
-        $data=$Models->where('model_id',$id);
-        $data->delete($id);
+        $data=$Models->where('model_id',$id); 
+        $data->delete();
         return redirect()->to(base_url('/model')); 
     } 
     
@@ -118,13 +117,11 @@ class Home extends BaseController
            return redirect()->to(base_url('/item')); 
        }
        
-       public function deleteItem($id = NULL) {
-		if (!empty($id) && $this->request->getMethod() == 'id') {
-			if($this->project_model->delete($id)) {
-				return redirect()->to(base_url('/item'));	
-			}
-		} else {
-			return redirect()->to(base_url('projects'));	
-		}
+       public function deleteItem() {
+        $id=$this->request->getVar('id');
+        $Models= new ItemModel();
+        $data=$Models->where('id',$id); 
+        $data->delete();
+        return redirect()->to(base_url('/item')); 
 	}
 }
